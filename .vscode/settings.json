@@ -6,5 +6,6 @@
   "files.insertFinalNewline": true,
 
   // C++ Extension
-  "C_Cpp.autoAddFileAssociations": false
+  "C_Cpp.autoAddFileAssociations": false,
+  "cmake.configureOnOpen": true
 }

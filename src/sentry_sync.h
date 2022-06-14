@@ -268,6 +268,8 @@ typedef pthread_cond_t sentry_cond_t;
                         PTHREAD_MUTEX_RECURSIVE                                \
                 }                                                              \
             }
+#    elif defined(SENTRY_PLATFORM_QNX)
+#        define SENTRY__MUTEX_INIT PTHREAD_RMUTEX_INITIALIZER
 #    else
 #        define SENTRY__MUTEX_INIT PTHREAD_RECURSIVE_MUTEX_INITIALIZER
 #    endif

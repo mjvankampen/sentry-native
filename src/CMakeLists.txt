@@ -86,6 +86,10 @@ elseif(AIX)
 	sentry_target_sources_cwd(sentry
 		modulefinder/sentry_modulefinder_aix.c
 	)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "QNX")
+	sentry_target_sources_cwd(sentry
+		modulefinder/sentry_modulefinder_qnx.c
+	)
 endif()
 
 # transport

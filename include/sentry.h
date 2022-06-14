@@ -56,6 +56,10 @@ extern "C" {
 /* IBM i PASE is also counted as AIX */
 #    define SENTRY_PLATFORM_AIX
 #    define SENTRY_PLATFORM_UNIX
+#elif defined(__QNX__)
+#    define SENTRY_PLATFORM_QNX
+#    define SENTRY_PLATFORM_UNIX
+#    define _QNX_SOURCE
 #else
 #    error unsupported platform
 #endif

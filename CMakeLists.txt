@@ -315,7 +315,7 @@ else()
 	target_compile_options(sentry PRIVATE $<BUILD_INTERFACE:-Wall -Wextra -Wpedantic>)
 	# The crashpad and breakpad headers generate the following warnings that we
 	# ignore specifically
-	target_compile_options(sentry PRIVATE $<BUILD_INTERFACE:-Wno-variadic-macros -Wno-gnu-include-next -Wno-multichar>)
+	#target_compile_options(sentry PRIVATE $<BUILD_INTERFACE:-Wno-variadic-macros -Wno-gnu-include-next -Wno-multichar>)
 	# ignore all warnings for mpack
 	set_source_files_properties(
 		"${PROJECT_SOURCE_DIR}/vendor/mpack.c"
@@ -379,6 +379,8 @@ elseif(LINUX)
     set(_SENTRY_PLATFORM_LIBS "dl" "rt")
 elseif(WIN32)
     set(_SENTRY_PLATFORM_LIBS "dbghelp" "shlwapi" "version")
+elseif(CMAKE_SYSTEM_NAME STREQUAL "QNX")
+    set(_SENTRY_PLATFORM_LIBS "m")
 endif()
 
 if(SENTRY_TRANSPORT_WINHTTP)
